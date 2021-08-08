@@ -9,6 +9,7 @@ import "./App.css";
 import Store from "./Pages/Store";
 import Subscription from "./Pages/Subscription";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import Layout from "./Components/Layout";
 
 const theme = createTheme({
   typography: {
@@ -29,14 +30,16 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Router>
-          <Switch>
-            <Route exact path="/">
-              <Store />
-            </Route>
-            <Route path="/subs">
-              <Subscription />
-            </Route>
-          </Switch>
+          <Layout>
+            <Switch>
+              <Route exact path="/">
+                <Store />
+              </Route>
+              <Route path="/subs">
+                <Subscription />
+              </Route>
+            </Switch>
+          </Layout>
         </Router>
       </ThemeProvider>
     );
