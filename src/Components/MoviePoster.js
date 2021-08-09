@@ -7,6 +7,7 @@ import {
   Fade,
 } from "@material-ui/core";
 import "./MoviePoster.css";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const useStyles = makeStyles({
   imageBar: {
@@ -29,6 +30,8 @@ function MoviePoster(props) {
   const [imageBar, setImageBar] = useState(false);
   const [fadeAnimation, setFadeAnimation] = useState(false);
   const [imageDarken, setImageDarken] = useState();
+  const [loaded, setLoaded] = useState(false);
+
   const classes = useStyles();
   //   const { item } = props.movieItem;
   //   console.log(item);
@@ -66,11 +69,13 @@ function MoviePoster(props) {
       key={props.id}
     >
       <CardActionArea className={classes.hoverArea}>
+        {loaded ? null : <Skeleton variant="rect" width={266} height={400} />}
         <img
+          style={loaded ? {} : { imageDarken }}
           className={classes.image}
-          style={imageDarken}
           src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}
           alt={props.title}
+          onLoad={() => setLoaded(true)}
         />
 
         <Fade in={fadeAnimation} timeout={600}>

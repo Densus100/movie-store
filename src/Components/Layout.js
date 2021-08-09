@@ -14,24 +14,27 @@ import { useHistory, useLocation } from "react-router";
 
 const drawerWidth = 340;
 
-const useStyles = makeStyles({
-  page: {
-    background: "#f9f9f9",
-    width: "100%",
-  },
-  list: {
-    width: 250,
-  },
-  drawer: {
-    width: drawerWidth,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
+const useStyles = makeStyles((theme) => {
+  return {
+    page: {
+      background: "#f9f9f9",
+      width: "100%",
+      padding: theme.spacing(3),
+    },
+    list: {
+      width: 250,
+    },
+    drawer: {
+      width: drawerWidth,
+    },
+    drawerPaper: {
+      width: drawerWidth,
+    },
 
-  active: {
-    background: "#dedede",
-  },
+    active: {
+      background: "#dedede",
+    },
+  };
 });
 
 function Layout({ children }) {
@@ -82,9 +85,14 @@ function Layout({ children }) {
           {menuItems.map((item) => (
             <ListItem
               button
-              onClick={() => history.push(item.path)}
+              onClick={() => {
+                toggleDrawerHandler();
+                history.push(item.path);
+              }}
               key={item.text}
-              className={location.pathname == item.path ? classes.active : null}
+              className={
+                location.pathname === item.path ? classes.active : null
+              }
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
