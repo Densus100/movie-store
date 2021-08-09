@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Button, makeStyles, Grid } from "@material-ui/core";
-import { Subscriptions, ShoppingCart } from "@material-ui/icons/";
+import { ShoppingCart } from "@material-ui/icons/";
 
 const useStyles = makeStyles({
   plan: {

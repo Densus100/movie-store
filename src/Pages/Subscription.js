@@ -1,13 +1,11 @@
 import React from "react";
 import {
   Typography,
-  Button,
   Container,
   makeStyles,
   Grid,
   ImageList,
 } from "@material-ui/core";
-import { Subscriptions } from "@material-ui/icons/";
 import Plan from "../Components/Plan";
 import example from "../../src/example.json";
 import MoviePoster from "../Components/MoviePoster";
