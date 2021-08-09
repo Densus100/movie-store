@@ -72,11 +72,11 @@ function Store() {
       <Container style={{ marginBottom: "50px" }}>
         <Typography
           color="textSecondary"
-          variant="h6"
+          variant="h5"
           component="h2"
           gutterBottom
         >
-          Store Page
+          Most Popular Movies
         </Typography>
         <ImageList className={classes.wrapper}>
           {items.map((item) => (
